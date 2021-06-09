@@ -1,0 +1,30 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://10.10.4.20:3000/HarrisonDubois/discordbot.git"
+  },
+  "author": "Expand",
+  "license": "ISC",
+  "dependencies": {
+    "appid": "^1.0.3",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "file-type": "^16.5.0",
+    "fs": "^0.0.1-security",
+    "get-pixels": "^3.3.2",
+    "google-it": "^1.6.2",
+    "got": "^11.8.2",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
+    "request-promise-cache": "^2.0.1",
+    "superagent": "^6.1.0",
+    "unirest": "^0.6.0"
+  }
+}
