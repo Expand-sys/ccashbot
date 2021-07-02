@@ -24,8 +24,12 @@
     "minecraft-server-util": "^3.5.2",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
+<<<<<<< HEAD
     "rcon-client": "^4.2.3",
     "request-promise-cache": "^2.0.1",
+=======
+    "quick.db": "^7.1.3",
+>>>>>>> 81b54603c198c2ad668af9d39ab97e759193dbcd
     "superagent": "^6.1.0",
     "unirest": "^0.6.0"
   }
