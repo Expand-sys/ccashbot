@@ -21,8 +21,10 @@
     "get-pixels": "^3.3.2",
     "google-it": "^1.6.2",
     "got": "^11.8.2",
+    "minecraft-server-util": "^3.5.2",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
+    "rcon-client": "^4.2.3",
     "request-promise-cache": "^2.0.1",
     "superagent": "^6.1.0",
     "unirest": "^0.6.0"
