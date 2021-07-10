@@ -33,16 +33,30 @@ async function link(disc, user, pass) {
 }
 async function checkbal(disc, user) {
   if (user != undefined) {
-    balance = await got(process.env.CCASHAPIURL + "BankF/" + user + "/bal");
-    balance = JSON.parse(balance.body);
-    return balance.value;
+    balance = await got(`${api}/user/balance`, {
+      headers: {
+        Accept: "application/json",
+      },
+      searchParams: {
+        name: user,
+      },
+    });
+    balance = parseInt(balance.body);
+    return balance;
   } else {
     let usernm = db.get("links").filter((a) => a.discorduser == disc.id)[0]
       .ccashuser;
     console.log(usernm);
-    balance = await got(process.env.CCASHAPIURL + "BankF/" + usernm + "/bal");
-    balance = JSON.parse(balance.body);
-    return balance.value;
+    balance = await got(`${api}/user/balance`, {
+      headers: {
+        Accept: "application/json",
+      },
+      searchParams: {
+        name: usernm,
+      },
+    });
+    balance = parseInt(balance.body);
+    return balance;
   }
 
   console.log(balance);
