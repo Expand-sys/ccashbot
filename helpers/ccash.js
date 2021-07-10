@@ -1,6 +1,6 @@
 const db = require("quick.db");
 const got = require("got");
-
+api = process.env.CCASHAPIURL;
 async function link(disc, user, pass) {
   let verified = await got.post(process.env.CCASHAPIURL + "BankF/vpass", {
     json: {
