@@ -8,7 +8,7 @@ module.exports = {
     if (bal == -1) {
       message.reply("User not found fucko");
     } else {
-      message.reply(bal.toString() + " urination station tokens");
+      message.reply(bal.toString() + " piss points");
     }
   },
 };
