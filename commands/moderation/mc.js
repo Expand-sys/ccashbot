@@ -2,6 +2,7 @@ const fs = require("fs");
 const got = require("got");
 
 const { Rcon } = require("rcon-client");
+const { spawn } = require("child_process");
 
 module.exports = {
   name: "mc",
@@ -13,7 +14,7 @@ module.exports = {
       return message.reply("OI you need to specify the command you want");
     } else {
       const rcon = new Rcon({
-        host: "twix.aosync.me",
+        host: "mc.expand.gay",
         port: 25575,
         password: "6pnyf2DsCfHV67d3",
       });

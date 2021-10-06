@@ -1,12 +1,24 @@
 const fs = require("fs");
 const fetch = require("node-fetch");
-const { Client, MessageAttachment, Collection } = require("discord.js");
+const {
+  Client,
+  MessageAttachment,
+  Intents,
+  Collection,
+} = require("discord.js");
 const dotenv = require("dotenv");
 
 dotenv.config();
 const prefix = process.env.PREFIX;
 
-const client = new Client();
+const client = new Client({
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.GUILD_MEMBERS,
+    Intents.FLAGS.GUILD_PRESENCES,
+  ],
+});
 client.commands = new Collection();
 client.cooldowns = new Collection();
 
