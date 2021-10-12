@@ -17,14 +17,13 @@ module.exports = {
 function spawnMC(channel) {
   let options = {
     shell: true,
-    cwd: "~/minecraft/",
+    cwd: "/root/minecraft/",
   };
   const minecraft = spawn(
     "java",
     ["-Xmx4096M", "-Xms1024M", "-jar", "server.jar", "-nogui"],
     options
   );
-  minecraftin = minecraft;
   minecraft.stdout.on("data", (data) => {
     try {
       channel.send(`${data}`);
