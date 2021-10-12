@@ -21,11 +21,14 @@ module.exports = {
 
       await rcon.connect();
       let content = message.content.split("!mc ");
-      if (message.args[0] == "say") {
-        let content = content[1].split("say ");
-        content[1] = `say ${message.author.nickname}: ${content[1]} `;
+      let fuck = content[1];
+      console.log(message.author);
+      if (args[0] == "say") {
+        fuck = fuck.split("say ");
+        fuck[1] = `say ${message.author.username}: ${fuck[1]} `;
       }
-      let res = await rcon.send(`${content[1]}`);
+      console.log(fuck);
+      let res = await rcon.send(`${fuck[1]}`);
 
       message.reply(`Sent Command ${content}: ${res}`);
       rcon.end();
