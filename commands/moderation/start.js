@@ -21,7 +21,7 @@ function spawnMC(channel) {
   };
   const minecraft = spawn(
     "java",
-    ["-Xmx4096M", "-Xms1024M", "-jar", "server.jar", "nogui"],
+    ["-Xmx4096M", "-Xms1024M", "-jar", "server.jar", "-nogui"],
     options
   );
   minecraftin = minecraft;
