@@ -28,7 +28,7 @@ module.exports = {
         fuck[1] = `say ${message.author.username}: ${fuck[1]} `;
       }
       console.log(fuck);
-      let res = await rcon.send(`${fuck[1]}`);
+      let res = await rcon.send(`${fuck[0]}`);
 
       message.reply(`Sent Command ${content}: ${res}`);
       rcon.end();
