@@ -8,7 +8,7 @@ module.exports = {
   name: "mc",
   description: "send a mc command",
   guildOnly: true,
-  permissions: "KICK_MEMBERS",
+  permissions: "SEND_MESSAGES",
   async execute(message, args) {
     if (!args) {
       return message.reply("OI you need to specify the command you want");
@@ -20,11 +20,11 @@ module.exports = {
       });
 
       await rcon.connect();
-      let content = message.content.split("!mc ");
-      let fuck = content[1];
-      console.log(message.author);
+      let content = message.content.substring(message.content.indexOf(" ") + 1);
+      console.log(content);
+      let fuck;
       if (args[0] == "say") {
-        fuck = fuck.split("say ");
+        fuck = content.split("say ");
         fuck[1] = `say ${message.author.username}: ${fuck[1]} `;
       }
       console.log(fuck);
