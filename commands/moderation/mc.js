@@ -22,7 +22,7 @@ module.exports = {
       await rcon.connect();
       let content = message.content.substring(message.content.indexOf(" ") + 1);
       console.log(content);
-      let fuck;
+      let fuck = content.split("say ");
       if (args[0] == "say") {
         fuck = content.split("say ");
         fuck[1] = `say ${message.author.username}: ${fuck[1]} `;
