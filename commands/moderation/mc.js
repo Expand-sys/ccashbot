@@ -25,7 +25,7 @@ module.exports = {
       let fuck = content.split("say ");
       if (args[0] == "say") {
         fuck = content.split("say ");
-        fuck[1] = `say ${message.author.username}: ${fuck[1]} `;
+        fuck[0] = `say ${message.author.username}: ${fuck[1]} `;
       }
       console.log(fuck);
       let res = await rcon.send(`${fuck[0]}`);
