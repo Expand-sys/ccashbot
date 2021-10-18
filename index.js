@@ -10,6 +10,8 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const prefix = process.env.PREFIX;
+const rconpass = process.env.RCONPASS;
+const host = process.env.HOST;
 
 const client = new Client({
   intents: [

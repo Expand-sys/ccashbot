@@ -6,9 +6,9 @@ module.exports = {
   async execute(message, args) {
     let bal = await checkbal(message.author, args[0]);
     if (bal == -1) {
-      message.reply("User not found fucko");
+      message.reply("User not found");
     } else {
-      message.reply(bal.toString() + " piss points");
+      message.reply(bal.toString() + " CCash");
     }
   },
 };

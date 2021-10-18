@@ -6,29 +6,28 @@ const { spawn } = require("child_process");
 
 module.exports = {
   name: "mc",
-  description: "send a mc command",
+  description: "send a Minecraft command",
   guildOnly: true,
-  permissions: "SEND_MESSAGES",
+  permissions: `${process.env.MCACCESS}`,
   async execute(message, args) {
     if (!args) {
       return message.reply("OI you need to specify the command you want");
     } else {
       const rcon = new Rcon({
-        host: "mc.expand.gay",
+        host: `${host}`,
         port: 25575,
-        password: "6pnyf2DsCfHV67d3",
+        password: `${rconpass}`,
       });
 
       await rcon.connect();
       let content = message.content.substring(message.content.indexOf(" ") + 1);
       console.log(content);
-      let fuck = content.split("say ");
+      let speech = content.split("say ");
       if (args[0] == "say") {
-        fuck = content.split("say ");
-        fuck[0] = `say ${message.author.username}: ${fuck[1]} `;
+        speech = content.split("say ");
+        speech[0] = `say ${message.author.username}: ${speech[1]} `;
       }
-      console.log(fuck);
-      let res = await rcon.send(`${fuck[0]}`);
+      let res = await rcon.send(`${speech[0]}`);
 
       message.reply(`Sent Command ${content}: ${res}`);
       rcon.end();
