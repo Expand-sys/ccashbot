@@ -3,6 +3,8 @@ const got = require("got");
 
 const { Rcon } = require("rcon-client");
 const { spawn } = require("child_process");
+const rconpass = process.env.RCONPASS;
+const host = process.env.HOST;
 
 module.exports = {
   name: "whitelist",
