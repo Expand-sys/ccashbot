@@ -16,7 +16,7 @@ module.exports = {
     if (!args) {
       return message.reply("OI you need to specify the command you want");
     } else {
-      console.log(host);
+      console.log("host");
       const rcon = new Rcon({
         host: `${host}`,
         port: 25575,

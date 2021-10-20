@@ -4,7 +4,7 @@ const got = require("got");
 const { Rcon } = require("rcon-client");
 const { spawn } = require("child_process");
 const rconpass = process.env.RCONPASS;
-const host = process.env.HOST;
+const host = process.env.MCHOST;
 
 module.exports = {
   name: "whitelist",
@@ -15,6 +15,7 @@ module.exports = {
     if (!args) {
       return message.reply("OI you need to specify the command you want");
     } else {
+      console.log(host);
       const rcon = new Rcon({
         host: `${host}`,
         port: 25575,
