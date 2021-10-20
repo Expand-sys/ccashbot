@@ -17,7 +17,7 @@ module.exports = {
 function spawnMC(channel) {
   let options = {
     shell: true,
-    cwd: "/root/minecraft/",
+    cwd: "/CCash/minecraft/",
   };
   const minecraft = spawn(
     "java",
