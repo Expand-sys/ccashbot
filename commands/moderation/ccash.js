@@ -10,11 +10,11 @@ module.exports = {
   permissions: "KICK_MEMBERS",
   async execute(message, args) {
     let channel = message.guild.channels.cache.get(process.env.CCASHCHAN);
-    spawnMC(channel);
+    spawnMC(channel, message);
   },
 };
 
-function spawnMC(channel) {
+function spawnMC(channel, message) {
   let options = {
     shell: true,
     cwd: "/CCash/CCash/build",
