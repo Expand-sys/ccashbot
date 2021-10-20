@@ -24,9 +24,10 @@ module.exports = {
 
       await rcon.connect();
       let content = message.content.split("!whitelist ")[1];
+      console.log(content);
       let res = await rcon.send(`whitelist add ${content}`);
 
-      message.reply(`whitelisted `);
+      message.reply(`whitelisted ${content}`);
       rcon.end();
     }
   },
