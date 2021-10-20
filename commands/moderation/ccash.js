@@ -20,8 +20,7 @@ function spawnMC(channel, message) {
     cwd: "/CCash/CCash/build",
   };
   let arguments = message.content.split("!ccash ");
-  console.log(arguments);
-  const ccash = spawn(`./bank ${arguments[0]}`, [``], options);
+  const ccash = spawn(`./bank ${arguments[1]}`, [``], options);
   ccash.stdout.on("data", (data) => {
     try {
       channel.send(`${data}`);
