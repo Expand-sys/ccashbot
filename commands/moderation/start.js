@@ -2,7 +2,7 @@ const fs = require("fs");
 const got = require("got");
 
 const { spawn } = require("child_process");
-let minecraftin;
+let minecraftloc = process.env.MINECRAFTLOC;
 module.exports = {
   name: "start",
   description: "start mc server",
@@ -17,7 +17,7 @@ module.exports = {
 function spawnMC(channel) {
   let options = {
     shell: true,
-    cwd: "/CCash/minecraft/",
+    cwd: `${minecraftloc}`,
   };
   const minecraft = spawn(
     "java",
