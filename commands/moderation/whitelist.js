@@ -13,12 +13,12 @@ module.exports = {
   permissions: "SEND_MESSAGES",
   async execute(message, args) {
     if (!args) {
-      return message.reply("OI you need to specify the command you want");
+      return message.reply("OI you need to specify your username you want to whitelist");
     } else {
       console.log(host);
       const rcon = new Rcon({
         host: `${host}`,
-        port: 25575,
+        port: `${process.env.RCONPASS}`,
         password: `${rconpass}`,
       });
 
