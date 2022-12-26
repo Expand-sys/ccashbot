@@ -21,13 +21,21 @@ module.exports = {
         port: `${process.env.RCON_PORT}`,
         password: `${rconpass}`,
       });
-
-      await rcon.connect();
+      let connected = true
+      let error
+      try{
+        await rcon.connect();
+      } catch(e){
+        console.log(e)
+        connected = false
+        error = e
+      }
+      
       let content = message.content.split("!whitelist ")[1];
       console.log(content);
       let res = await rcon.send(`whitelist add ${content}`);
 
-      message.reply(`whitelisted ${content}`);
+      message.reply(`${res}`);
       rcon.end();
     }
   },
