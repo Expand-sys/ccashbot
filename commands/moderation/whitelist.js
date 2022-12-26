@@ -18,7 +18,7 @@ module.exports = {
       console.log(host);
       const rcon = new Rcon({
         host: `${host}`,
-        port: `${process.env.RCONPASS}`,
+        port: `${process.env.RCON_PORT}`,
         password: `${rconpass}`,
       });
 
