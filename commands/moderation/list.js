@@ -12,7 +12,7 @@ module.exports = {
   guildOnly: true,
   permissions: "SEND_MESSAGES",
   async execute(message, args) {
-    if (args) {
+    if (args.length > 1) {
       return message.reply("fuck bro your confusing me with all them words");
     } else {
       console.log(host);
