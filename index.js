@@ -7,8 +7,20 @@ const {
   Collection,
 } = require("discord.js");
 const dotenv = require("dotenv");
-
+const { env } = require("process");
+const got = require("got")
 dotenv.config();
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+
+
+
+
 const prefix = process.env.PREFIX;
 
 const client = new Client({
@@ -39,6 +51,28 @@ client.once("ready", () => {
 });
 
 client.on("message", async (message) => {
+  if (message.channel == process.env.CHATCHANNEL || message.mentions.members.first().user.id == 216882708012466176) {
+    let question = message.content.split(" ")
+    question.shift()
+    question = question.join(" ")
+    
+    response = await openai.createCompletion({
+      model: "text-davinci-003",
+      
+      prompt: `${question}`,
+      temperature: 0.5,
+      max_tokens: 60,
+      top_p: 0.3,
+      frequency_penalty: 0.5,
+      presence_penalty: 0.0
+    }
+    )
+    console.log(response)
+    message.reply(response.data.choices[0].text)
+    
+    
+  }
+
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
