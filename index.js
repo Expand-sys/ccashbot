@@ -51,27 +51,30 @@ client.once("ready", () => {
 });
 
 client.on("message", async (message) => {
-  if (message.channel == process.env.CHATCHANNEL || message.mentions.members.first().user.id == 216882708012466176) {
-    let question = message.content.split(" ")
-    question.shift()
-    question = question.join(" ")
-    
-    response = await openai.createCompletion({
-      model: "text-davinci-003",
+  if (message.mentions.members.first()){
+    if (message.mentions.members.first().user.id == 216882708012466176) {
+      let question = message.content.split(" ")
+      question.shift()
+      question = question.join(" ")
       
-      prompt: `${question}`,
-      temperature: 0.5,
-      max_tokens: 60,
-      top_p: 0.3,
-      frequency_penalty: 0.5,
-      presence_penalty: 0.0
+      response = await openai.createCompletion({
+        model: "text-davinci-003",
+        
+        prompt: `${question}`,
+        temperature: 0.5,
+        max_tokens: 500,
+        top_p: 0.3,
+        frequency_penalty: 0.5,
+        presence_penalty: 0.0
+      }
+      )
+      console.log(response.data)
+      message.reply(response.data.choices[0].text)
+      
+      
     }
-    )
-    console.log(response)
-    message.reply(response.data.choices[0].text)
-    
-    
   }
+  
 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
